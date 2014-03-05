@@ -48,6 +48,12 @@
 
         <uses-library />
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <Privilege>
+            <Name>CAMERA</Name>
+        </Privilege>
+        <Privilege>
+            <Name>RECORDING</Name>
+        </Privilege>
 
     </application>
 
