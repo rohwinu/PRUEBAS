@@ -35,6 +35,7 @@
         <script src="js/menu.js"></script>
         
         <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<<<<<<< HEAD
         
         <link href="css/menu.css" rel="stylesheet">
         <!-- Fin slide icons-->
@@ -48,6 +49,101 @@
 		div.gallery-item img { display: block; width: 100%; height: auto; }
 		#ubicacion .ui-content, #Gallery2 .ui-content { overflow: hidden; }
 		</style>
+=======
+        <script type="text/javascript">
+            function obtenerCosito()
+            {
+                //var variable = $("#cosa").val();
+                $("#resultado").load("http://www.gatolocostudios.com/MobileCDC/index.html");
+            }
+        </script>
+        <script type="text/javascript" charset="utf-8">
+            
+            var pictureSource;   // picture source
+            var destinationType; // sets the format of returned value 
+            
+            // Wait for Cordova to connect with the device
+            //
+            document.addEventListener("deviceready",onDeviceReady,false);
+            
+            // Cordova is ready to be used!
+            //
+            function onDeviceReady() {
+                pictureSource=navigator.camera.PictureSourceType;
+                destinationType=navigator.camera.DestinationType;
+            }
+            
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoDataSuccess(imageData) {
+              // Uncomment to view the base64 encoded image data
+              // console.log(imageData);
+            
+              // Get image handle
+              //
+              var smallImage = document.getElementById('smallImage');
+            
+              // Unhide image elements
+              //
+              smallImage.style.display = 'block';
+            
+              // Show the captured photo
+              // The inline CSS rules are used to resize the image
+              //
+              smallImage.src = "data:image/jpeg;base64," + imageData;
+            }
+            
+            // Called when a photo is successfully retrieved
+            //
+            function onPhotoURISuccess(imageURI) {
+              // Uncomment to view the image file URI 
+              // console.log(imageURI);
+            
+              // Get image handle
+              //
+              var largeImage = document.getElementById('largeImage');
+            
+              // Unhide image elements
+              //
+              largeImage.style.display = 'block';
+            
+              // Show the captured photo
+              // The inline CSS rules are used to resize the image
+              //
+              largeImage.src = imageURI;
+            }
+            
+            // A button will call this function
+            //
+            function capturePhoto() {
+              // Take picture using device camera and retrieve image as base64-encoded string
+              navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+                destinationType: destinationType.DATA_URL });
+            }
+            
+            // A button will call this function
+            //
+            function capturePhotoEdit() {
+              // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
+              navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true,
+                destinationType: destinationType.DATA_URL });
+            }
+            
+            // A button will call this function
+            //
+            function getPhoto(source) {
+              // Retrieve image file location from specified source
+              navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+                destinationType: destinationType.FILE_URI,
+                sourceType: source });
+            }
+            
+            // Called if something bad happens.
+            // 
+            function onFail(message) {
+              alert('Failed because: ' + message);
+            }
+>>>>>>> 4a0b78ba71f6d4ff9cab2e56792d07b3bfdc3e11
 
 		
 		<script type="text/javascript" src="file:///C|/wamp/www/1.0.11/lib/jquery-1.6.1.min.js"></script>
@@ -88,6 +184,7 @@
         
     </head>
     <body>
+<<<<<<< HEAD
         <div data-role="page" data-theme="b" id="page1">
             <div data-role="header">
                 <div id="img3">
@@ -118,6 +215,29 @@
         
         
                 
+=======
+        <div id="resultado">
+            <div class="app">
+                <h1>PhoneGap</h1>
+                <div id="deviceready" class="blink">
+                    <p class="event listening">Connecting to Device</p>
+                    <p class="event received">Device is Ready</p>
+                    <section>
+                        <label>Ingrese un dato: </label>
+                        <input type="text" id="cosa"/>
+                        <input type="submit" value="obtener" onclick="obtenerCosito();"/>
+                        
+                    </section>
+                    <!--
+    <section>
+                        <button onclick="capturePhoto();">Capture Photo</button> <br>
+                        <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
+                        <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+                        <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+                    </section>
+    -->
+                </div>
+>>>>>>> 4a0b78ba71f6d4ff9cab2e56792d07b3bfdc3e11
             </div>
             <div data-role="footer" data-position="fixed">
            <div class="botonera" data-role="navbar">
